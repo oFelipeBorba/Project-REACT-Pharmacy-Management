@@ -10,8 +10,8 @@ export default function CardMedicamento({
   //como o id foi criado com math.randon eu passo ele para outra variavel para tornar uma string, assim consigo diferenciar os modals
   let novoId = id.toString();
   return (
-    <>
-      <div className="card" style={{ width: "18rem", height: '11rem'}}>
+    <div className="col-lg-4 col-md-6 col-sm-12">
+      <div className="card" style={{ height: '12rem'}}>
         <div
           className="card-body"
           data-bs-toggle="modal"
@@ -20,10 +20,10 @@ export default function CardMedicamento({
           <h5 className="card-title">{medicamento}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{dosagem}</h6>
           <p className="card-text">
-            {descricao.substring(0,47)}...
+            {descricao.substring(0,57)}..
           </p>
           <div className="d-grid col-6 mx-auto">
-          <button className="btn btn-outline-success btn-sm mt-3">
+          <button className="btn btn-outline-success btn-sm mt-4 ">
             Saiba mais
           </button>
           </div>
@@ -89,6 +89,6 @@ export default function CardMedicamento({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

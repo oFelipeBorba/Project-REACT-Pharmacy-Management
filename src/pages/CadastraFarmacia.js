@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDadosFarmacia } from "../contexts/useDadosFarmacia";
+import MenuNavegacao from "../components/MenuNavegacao";
 import FormCadastraFarmacia from "../components/FormCadastraFarmacia";
 export default function CadastraFarmacia() {
   const { cepInformado, latLng, setLatLng} = useDadosFarmacia();
@@ -39,7 +40,7 @@ export default function CadastraFarmacia() {
 
   useEffect(() => {
     fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${respostaCep.logradouro},${respostaCep.localidade},${respostaCep.bairro},${respostaCep.uf}&components=country:BR&key={Colar a Key aqui}`,
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${respostaCep.logradouro},${respostaCep.localidade},${respostaCep.bairro},${respostaCep.uf}&components=country:BR&key=`,
       { method: "GET" }
     )
       .then((respostaInicial) => {
@@ -55,6 +56,8 @@ export default function CadastraFarmacia() {
   
 
   return (
+    <>    
+    <MenuNavegacao/>
     <FormCadastraFarmacia
       logradouro={respostaCep.logradouro}
       localidade={respostaCep.localidade}
@@ -63,5 +66,6 @@ export default function CadastraFarmacia() {
       lat={latLng.latitude}
       lng={latLng.longitude}
     />
+    </>    
   );
 }

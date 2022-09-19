@@ -5,69 +5,65 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../contexts/useLogin";
 
-export default function FormLogin(){
-    const navigate = useNavigate();
+export default function FormLogin() {
+  const navigate = useNavigate();
+  const { setLogin } = useLogin();
 
-    const [senha, setSenha] = useState("");
-  
-    return (
-      <form
-        className="col-lg-4"
-        onSubmit={(e) => {
-          e.preventDefault();
-          navigate("/mapa");
-        }}
-      >
-        <fieldset className="mb-3">
-          <label for="inputEmail" className="form-label">
-            E-mail
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="inputEmail"
-            required
-            placeholder="Digite o seu e-mail"
-          />
-        </fieldset>
-        <fieldset className="mb-3">
-          <label for="inputSenha" className="form-label">
-            Senha
-          </label>
-          <input
-            type="password"
-            className="form-control"
-            id="inputSenha"
-            required
-            placeholder="Digite a sua senha"
-            pattern="^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{8,30}$"
-            onChange={(e) => setSenha(e.target.value)}
-          />
-        </fieldset>
-        <fieldset className="mb-3">
-          <span>
-            <b>Sua senha deve conter pelo menos:</b>
-          </span>
-          <br />
-          <p>{senha.length >= 8 ? "🟢" : "❌"}8 caracteres</p>
-          <p>
-            {senha.includes("0") |
-            senha.includes("1") |
-            senha.includes("2") |
-            senha.includes("3") |
-            senha.includes("4") |
-            senha.includes("5") |
-            senha.includes("6") |
-            senha.includes("7") |
-            senha.includes("8") |
-            senha.includes("9")
-              ? "🟢"
-              : "❌"}
-            1 número
-          </p>
-        </fieldset>
-        <input value="Entrar" type="submit" className="btn btn-primary" />
-      </form>
-    );
-  }
+  const [senha, setSenha] = useState("");
+
+  return (
+    <div className="container">
+      <div className="row justify-content-center align-items-center vh-100">
+        <form
+          className="col-lg-4 p-4 rounded-3"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setLogin(true);
+            navigate("/mapa");
+          }}
+          style={{backgroundColor: "#e9ecef"}}
+        >
+          <fieldset className="mb-3">
+            <label for="inputEmail" className="form-label">
+              E-mail
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="inputEmail"
+              required
+              placeholder="Digite o seu e-mail"
+            />
+          </fieldset>
+          <fieldset className="mb-3">
+            <label for="inputSenha" className="form-label ">
+              Senha
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="inputSenha"
+              required
+              placeholder="Digite a sua senha"
+              pattern="^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{8,30}$"
+              onChange={(e) => setSenha(e.target.value)}
+            />
+          </fieldset>
+          <fieldset className="mb-3">
+            <span>
+              <b>Sua senha deve conter pelo menos:</b>
+            </span>
+            <br />
+            <p>{senha.length >= 8 ? "🟢" : "❌"}8 caracteres</p>
+            <p>{senha.search(/[a-z]/) !== -1 ? "🟢" : "❌"}1 letra</p>
+            <p>{senha.search(/[0-9]/) !== -1 ? "🟢" : "❌"}1 número</p>
+          </fieldset>
+          <div className="d-grid gap-2 col-6 mx-auto">
+          <input value="Entrar" type="submit" className="btn btn-success" /></div>
+        </form>
+      </div>
+    </div>
+  );
+}

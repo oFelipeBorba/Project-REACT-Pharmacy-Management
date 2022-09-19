@@ -1,4 +1,5 @@
 import FormCadastraMedicamento from "../components/FormCadastraMedicamento";
+import MenuNavegacao from "../components/MenuNavegacao";
 export default function CadastraMedicamento() {
   //crio um primeiro medicamento para que no primeiro uso, o usuario tenha algo para visualizar na pagina de medicamentos cadastrados
   let primeiroMedicamento = [
@@ -25,5 +26,10 @@ export default function CadastraMedicamento() {
       JSON.stringify(primeiroMedicamento)
     );
   }
-  return <FormCadastraMedicamento />;
+  return (
+    <>
+      <MenuNavegacao />
+      <FormCadastraMedicamento />
+    </>
+  );
 }
