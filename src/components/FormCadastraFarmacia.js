@@ -33,22 +33,23 @@ export default function FormCadastraFarmacia({
   function armazenaFarmacia() {
     listaFarmacias.push(farmacia);
     localStorage.setItem("ListaFarmacias", JSON.stringify(listaFarmacias));
+    
+    alert(`Uma nova Farmácia foi cadastrado com sucesso!`)
   }
 
   return (
     //formulario criado com bootstrap e feito modificacoes para responsividade, em cada input existe um onchange que envia valor para var farmacia
     <div className="container">
-      <div className="row justify-content-center align-items-center vh-100">
+      <div className="row justify-content-center">
         <form
-          className="row g-3 mt-5 p-4 rounded-3"
+          className="row g-3 mt-5 ps-4 pe-4 pt-3"
           onSubmit={(e) => {
             e.preventDefault();
             e.target.reset();
             armazenaFarmacia();
           }}
-          style={{ backgroundColor: "#e9ecef" }}
         >
-          <h4>Cadastro de nova Farmácia</h4>
+          <h4>Cadastro de nova Farmácia:</h4>
           <fieldset className="col-md-6 col-lg-4">
             <label for="inputRazaoSocial" className="form-label">
               Razão Social

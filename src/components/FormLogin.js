@@ -17,14 +17,17 @@ export default function FormLogin() {
     <div className="container">
       <div className="row justify-content-center align-items-center vh-100">
         <form
-          className="col-lg-4 p-4 rounded-3"
+          className="col-lg-5 col-md-8 p-4 rounded-3"
           onSubmit={(e) => {
             e.preventDefault();
             setLogin(true);
             navigate("/mapa");
           }}
-          style={{backgroundColor: "#e9ecef"}}
+          style={{ backgroundColor: "#CCE3DE" }}
         >
+          <div className="mb-3">
+            <h5>Faça Login para acessar o site:</h5>
+          </div>
           <fieldset className="mb-3">
             <label for="inputEmail" className="form-label">
               E-mail
@@ -61,7 +64,8 @@ export default function FormLogin() {
             <p>{senha.search(/[0-9]/) !== -1 ? "🟢" : "❌"}1 número</p>
           </fieldset>
           <div className="d-grid gap-2 col-6 mx-auto">
-          <input value="Entrar" type="submit" className="btn btn-success" /></div>
+            <input value="Entrar" type="submit" className="btn btn-success" />
+          </div>
         </form>
       </div>
     </div>

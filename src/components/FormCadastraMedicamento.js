@@ -1,28 +1,27 @@
 import { useState } from "react";
 export default function FormCadastraMedicamento() {
-  //objeto reservado para montar um medicamento que apos validacao sera enviado para lista de medicamentos.
+  //Objeto reservado para montar um medicamento que apos validacao sera enviado para lista de medicamentos.
   const [medicamento, setMedicamento] = useState({
     id: Math.random(),
   });
-  //variavel reservada para montar a lista completa dos medicamentos e enviar para localStorage
+  //variavel reservada para montar a lista completa dos medicamentos e fazer GET do localStorage
   let listaMedicamentos = JSON.parse(localStorage.getItem("ListaMedicamentos"));
-  //funcao que armazena no array o novo medicamento criado e envia para o localstorage
-  function armazenaMedicamento() {
+  //Funcao que armazena no array o novo medicamento criado e envia para o localstorage
+  function armazenaMedicamento(e) {
+    e.preventDefault();
     listaMedicamentos.push(medicamento);
     localStorage.setItem(
       "ListaMedicamentos",
       JSON.stringify(listaMedicamentos)
     );
+    document.getElementById("reset").click();
+    alert(`Um novo Medicamento foi cadastrado com sucesso!`)
   }
   return (
     <div className="container">
-      <div className="row justify-content-center align-items-center vh-100">
-        <form
-          className="row g-3 p-4 rounded-3"
-          onSubmit={armazenaMedicamento}          
-          style={{ backgroundColor: "#e9ecef" }}
-        >
-          <h4>Cadastro de novo Medicamento</h4>
+      <div className="row justify-content-center mt-4 ">
+        <form className="row g-3 p-4" onSubmit={armazenaMedicamento}>
+          <h4>Cadastro de novo Medicamento:</h4>
           <fieldset className="col-md-6">
             <label for="inputMedicamento" className="form-label">
               Medicamento
@@ -124,11 +123,20 @@ export default function FormCadastraMedicamento() {
           </fieldset>
           <div className="d-grid gap-1 d-md-flex justify-content-md-end">
             <input
+              id="reset"
               value="Limpar"
               type="reset"
               className="btn btn-secondary me-md-1"
               onClick={() => {
-                document.location.reload(true);
+                setMedicamento({
+                  id: Math.random(),
+                  medicamento: "",
+                  laboratorio: "",
+                  dosagem: "",
+                  preco: "",
+                  tipo: "",
+                  descricao: "",
+                });
               }}
             />
             <input

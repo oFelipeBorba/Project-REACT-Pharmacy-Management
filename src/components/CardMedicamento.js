@@ -20,7 +20,7 @@ export default function CardMedicamento({
           <h5 className="card-title">{medicamento}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{dosagem}</h6>
           <p className="card-text">
-            {descricao.substring(0,57)}..
+            {descricao ? descricao.substring(0,57): null}..
           </p>
           <div className="d-grid col-6 mx-auto">
           <button className="btn btn-outline-success btn-sm mt-4 ">

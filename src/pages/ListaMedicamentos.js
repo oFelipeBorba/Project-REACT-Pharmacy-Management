@@ -27,40 +27,42 @@ export default function ListaMedicamentos() {
         }
       })
     );
-  }, [termo, listaMedicamentos]);
+  }, [termo]);
 
   return (
     <>
-    <MenuNavegacao/>
-    <div
-      className="container pb-1 rounded-3"
-      style={{ backgroundColor: "red" }}
-    >
-      <div className="col-lg-5 col-md-12 pt-3">
-      <input
-          className="form-control"
-          aria-describedby="inputGroup-sizing-sm"
-          value={termo}
-          onChange={(e) => setTermo(e.target.value)}
-          placeholder="Digite o nome do medicamento a ser buscado..."
-        ></input>
+      <MenuNavegacao />
+      <div className="container">
+        <div className="row g-3 ps-4 pe-4">
+          <div className="col-lg-5 col-md-12 mt-5">
+            <h4 className="mt-5">Lista de Medicamentos:</h4>
+            <input
+              className="form-control mt-3"
+              aria-describedby="inputGroup-sizing-sm"
+              value={termo}
+              onChange={(e) => setTermo(e.target.value)}
+              placeholder="Pesquise o nome do medicamento ..."
+            ></input>
+          </div>
+          <div
+            className="row g-3 mb-5"
+          >
+            {filtrado.map((item) => {
+              return (
+                <CardMedicamento
+                  descricao={item.descricao}
+                  medicamento={item.medicamento}
+                  dosagem={item.dosagem}
+                  preco={item.preco}
+                  tipo={item.tipo}
+                  laboratorio={item.laboratorio}
+                  id={item.id}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <div className="row g-3 mb-3 mt-3">
-        {filtrado.map((item) => {
-          return (
-            <CardMedicamento
-              descricao={item.descricao}
-              medicamento={item.medicamento}
-              dosagem={item.dosagem}
-              preco={item.preco}
-              tipo={item.tipo}
-              laboratorio={item.laboratorio}
-              id={item.id}
-            />
-          );
-        })}
-      </div>
-    </div>
     </>
   );
 }
