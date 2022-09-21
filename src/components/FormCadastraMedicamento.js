@@ -19,11 +19,11 @@ export default function FormCadastraMedicamento() {
   }
   return (
     <div className="container">
-      <div className="row justify-content-center mt-4 ">
+      <div className="row justify-content-center mt-2 pt-5">
         <form className="row g-3 p-4" onSubmit={armazenaMedicamento}>
           <h4>Cadastro de novo Medicamento:</h4>
           <fieldset className="col-md-6">
-            <label for="inputMedicamento" className="form-label">
+            <label htmlFor="inputMedicamento" className="form-label">
               Medicamento
             </label>
             <input
@@ -39,7 +39,7 @@ export default function FormCadastraMedicamento() {
             />
           </fieldset>
           <fieldset className="col-md-6">
-            <label for="inputLaboratorio" className="form-label">
+            <label htmlFor="inputLaboratorio" className="form-label">
               Laboratório
             </label>
             <input
@@ -55,7 +55,7 @@ export default function FormCadastraMedicamento() {
             />
           </fieldset>
           <fieldset className="col-md-4">
-            <label for="inputDosagem" className="form-label">
+            <label htmlFor="inputDosagem" className="form-label">
               Dosagem
             </label>
             <input
@@ -71,7 +71,7 @@ export default function FormCadastraMedicamento() {
             />
           </fieldset>
           <fieldset className="col-md-4">
-            <label for="inputPreco" className="form-label">
+            <label htmlFor="inputPreco" className="form-label">
               Preço Unitário
             </label>
             <input
@@ -87,7 +87,7 @@ export default function FormCadastraMedicamento() {
             />
           </fieldset>
           <fieldset className="col-md-4">
-            <label for="inputTipo" className="form-label">
+            <label htmlFor="inputTipo" className="form-label">
               Tipo de medicamento
             </label>
             <select
@@ -99,7 +99,7 @@ export default function FormCadastraMedicamento() {
                 setMedicamento({ ...medicamento, tipo: e.target.value })
               }
             >
-              <option selected></option>
+              <option defaultValue></option>
               <option value="Medicamento controlado">
                 Medicamento controlado
               </option>
@@ -107,7 +107,7 @@ export default function FormCadastraMedicamento() {
             </select>
           </fieldset>
           <fieldset className="col-md-12">
-            <label for="inputDescricao" className="form-label">
+            <label htmlFor="inputDescricao" className="form-label">
               Descrição
             </label>
             <textarea

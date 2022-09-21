@@ -3,7 +3,8 @@ import { useDadosFarmacia } from "../contexts/useDadosFarmacia";
 import MenuNavegacao from "../components/MenuNavegacao";
 import FormCadastraFarmacia from "../components/FormCadastraFarmacia";
 export default function CadastraFarmacia() {
-  const { cepInformado, latLng, setLatLng} = useDadosFarmacia();
+  const { cepInformado, setCepInformado, latLng, setLatLng } =
+    useDadosFarmacia();
 
   //recebe a resposta da api viaCep
   const [respostaCep, setRespostaCep] = useState({
@@ -27,12 +28,18 @@ export default function CadastraFarmacia() {
             logradouro: infoDoCEP.logradouro,
             localidade: infoDoCEP.localidade,
             uf: infoDoCEP.uf,
-            bairro: infoDoCEP.bairro
+            bairro: infoDoCEP.bairro,
           });
           if (infoDoCEP.erro) {
             alert(
               `ATENÇÃO: Para carregar automaticamento os dados do endereço por meio do CEP informado, por favor revise o campo: "CEP". (Ele deve conter 8 dígitos, apenas números)`
             );
+            setRespostaCep({
+              logradouro: "",
+              localidade: "",
+              uf: "",
+              bairro: "",
+            });
           }
         });
     }
@@ -47,25 +54,32 @@ export default function CadastraFarmacia() {
         return respostaInicial.json();
       })
       .then((geocode) => {
-        setLatLng({
-          latitude: geocode.results[0].geometry.location.lat,
-          longitude: geocode.results[0].geometry.location.lng,
-        });
+        if (respostaCep.localidade !== "") {
+          setLatLng({
+            latitude: geocode.results[0].geometry.location.lat,
+            longitude: geocode.results[0].geometry.location.lng,
+          });
+        } else {
+          setLatLng({
+            latitude: "",
+            longitude: "",
+          });
+        }
+        setCepInformado("");
       });
   }, [respostaCep]);
-  
 
   return (
-    <>    
-    <MenuNavegacao/>
-    <FormCadastraFarmacia
-      logradouro={respostaCep.logradouro}
-      localidade={respostaCep.localidade}
-      bairro={respostaCep.bairro}
-      uf={respostaCep.uf}
-      lat={latLng.latitude}
-      lng={latLng.longitude}
-    />
-    </>    
+    <>
+      <MenuNavegacao />
+      <FormCadastraFarmacia
+        logradouro={respostaCep.logradouro}
+        localidade={respostaCep.localidade}
+        bairro={respostaCep.bairro}
+        uf={respostaCep.uf}
+        lat={latLng.latitude}
+        lng={latLng.longitude}
+      />
+    </>
   );
 }

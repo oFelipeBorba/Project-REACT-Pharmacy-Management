@@ -4,7 +4,7 @@ export default function MenuNavegacao() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top" style={{backgroundColor: "#31955F"}}>
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to={"/home"} activeClassName="active-link">
+        <NavLink className="navbar-brand" to={"/home"} activeclassname="active-link">
           <img
             src={logo}
             alt=""
@@ -28,17 +28,22 @@ export default function MenuNavegacao() {
         <div className="d-flex justify-content-end">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li className="nav-item">
-                <NavLink className="nav-link" type='button' to={"/cadastra-farmacia"} activeClassName="active-link">Cadastro de Farmácias</NavLink>
+              <li key="cadastra-farmacia" className="nav-item">
+                <NavLink className="nav-link" type='button' to={"/cadastra-farmacia"} activeclassname="active-link">Cadastro de Farmácias</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" type='button' to={"/cadastra-medicamento"} activeClassName="active-link">Cadastro de Medicamentos</NavLink>
+              <li key="cadastra-medicamento" className="nav-item">
+                <NavLink className="nav-link" type='button' to={"/cadastra-medicamento"} activeclassname="active-link">Cadastro de Medicamentos</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" type='button' to={"/lista-medicamentos"} activeClassName="active-link">Lista de Medicamentos</NavLink>
+              <li key="lista-medicamentos" className="nav-item">
+                <NavLink className="nav-link" type='button' to={"/lista-medicamentos"} activeclassname="active-link">Lista de Medicamentos</NavLink>
+              </li>              
+              <li key="perguntas-freq" className="nav-item">
+                <NavLink className="nav-link" type='button' to={"/ajuda"} activeclassname="active-link">
+                Ajuda
+                </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link btn btn-sm btn-dark border-0 rounded-5 pe-3" type='button' to={"/mapa"} activeClassName="active-link">
+              <li key="mapa" className="nav-item">
+                <NavLink className="nav-link btn btn-sm btn-dark border-0 rounded-5 pe-3" type='button' to={"/mapa"} activeclassname="active-link">
                 📍 Mapa 
                 </NavLink>
               </li>

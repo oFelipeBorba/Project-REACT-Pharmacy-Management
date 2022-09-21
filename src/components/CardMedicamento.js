@@ -32,7 +32,7 @@ export default function CardMedicamento({
       <div
         className="modal fade"
         id={`a${novoId.substring(2, 13)}`}
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby={`a${novoId.substring(2, 13)}`}
         aria-hidden="true"
       >

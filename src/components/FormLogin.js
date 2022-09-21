@@ -17,6 +17,7 @@ export default function FormLogin() {
     <div className="container">
       <div className="row justify-content-center align-items-center vh-100">
         <form
+          autoComplete="off"
           className="col-lg-5 col-md-8 p-4 rounded-3"
           onSubmit={(e) => {
             e.preventDefault();
@@ -29,7 +30,7 @@ export default function FormLogin() {
             <h5>Faça Login para acessar o site:</h5>
           </div>
           <fieldset className="mb-3">
-            <label for="inputEmail" className="form-label">
+            <label htmlFor="inputEmail" className="form-label">
               E-mail
             </label>
             <input
@@ -41,7 +42,7 @@ export default function FormLogin() {
             />
           </fieldset>
           <fieldset className="mb-3">
-            <label for="inputSenha" className="form-label ">
+            <label htmlFor="inputSenha" className="form-label ">
               Senha
             </label>
             <input

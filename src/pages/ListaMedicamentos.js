@@ -33,9 +33,9 @@ export default function ListaMedicamentos() {
     <>
       <MenuNavegacao />
       <div className="container">
-        <div className="row g-3 ps-4 pe-4">
+        <div className="row g-3 ps-4 pe-4 pt-5">
           <div className="col-lg-5 col-md-12 mt-5">
-            <h4 className="mt-5">Lista de Medicamentos:</h4>
+            <h4 className="pt-4 mb-0 mt-2">Lista de Medicamentos:</h4>
             <input
               className="form-control mt-3"
               aria-describedby="inputGroup-sizing-sm"
@@ -44,12 +44,11 @@ export default function ListaMedicamentos() {
               placeholder="Pesquise o nome do medicamento ..."
             ></input>
           </div>
-          <div
-            className="row g-3 mb-5"
-          >
+          <div className="row g-3 mb-5">
             {filtrado.map((item) => {
               return (
                 <CardMedicamento
+                  key={item.id}
                   descricao={item.descricao}
                   medicamento={item.medicamento}
                   dosagem={item.dosagem}

@@ -1,9 +1,9 @@
 import { createContext, useContext, useState } from "react";
 const DadosFarmaciaContext = createContext();
 const DadosFarmaciaProvider = ({ children }) => {
-  //reservado para receber o valor do input de CEP
+  //Reservado para receber o valor do input de CEP, utilizado em diferentes paginas
   const [cepInformado, setCepInformado] = useState("");
-  //reservado para receber a latitude e longitude, utilizado em diferentes paginas
+  //Reservado para receber a latitude e longitude, utilizado em diferentes paginas
   const [latLng, setLatLng] = useState({
     latitude: "",
     longitude: "",

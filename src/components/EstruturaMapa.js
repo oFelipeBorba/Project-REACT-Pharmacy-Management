@@ -76,7 +76,7 @@ export default function EstruturaMapa() {
           />
 
           {listaFarmacias.map((farmacia) => (
-            <Marker position={[farmacia.latitude, farmacia.longitude]}>
+            <Marker position={[farmacia.latitude, farmacia.longitude]} key={farmacia.id}>
               <Popup>
                 <h6>{farmacia.nome}</h6>
                 <span>

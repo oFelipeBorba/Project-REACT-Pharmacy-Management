@@ -8,14 +8,13 @@ export default function FormCadastraFarmacia({
   lat,
   lng,
 }) {
-  //faco a desestruturacao para utilizar as variaveis do useDadosFarmacia (context)
+  //Desestruturacao para utilizar as variaveis do useDadosFarmacia (context)
   const { cepInformado, setCepInformado } = useDadosFarmacia();
-  //variavel local para armazenar provisoriamente os dados dos inputs e depois enviar para lista completa das farmacias
+  //Variavel local para armazenar provisoriamente os dados dos inputs e depois enviar para lista completa das farmacias
   const [farmacia, setFarmacia] = useState({});
-
-  // crio um arr para receber os dados ja existentes do localStorage
-  let listaFarmacias = JSON.parse(localStorage.getItem("ListaFarmacias"));
-  //Como os dados do cep sao recebidos por meio de props e nao pelo onchange, utilizo o useffect para atualizar o valor de farmacia toda vez que o cepInformado for alterado
+  //Crio um array para receber os dados ja existentes do localStorage
+  let listaFarmacias = JSON.parse(localStorage.getItem("ListaFarmacias"));  
+  //Como os dados do cep sao recebidos por meio de props e nao so pelo onchange, utilizo o useffect para atualizar o valor de farmacia toda vez que o cepInformado for alterado
   useEffect(() => {
     setFarmacia({
       ...farmacia,
@@ -28,30 +27,36 @@ export default function FormCadastraFarmacia({
       longitude: lng,
     });
   }, [cepInformado, bairro, localidade, logradouro, uf, lat, lng]);
-
-  //funcao que armazena no array a nova farmacia criada e envia para o localstorage
+  //Funcao que armazena no array a nova farmacia criada e envia para o localstorage
   function armazenaFarmacia() {
+    setFarmacia({
+      ...farmacia,
+      id: Math.random(),
+    });
     listaFarmacias.push(farmacia);
     localStorage.setItem("ListaFarmacias", JSON.stringify(listaFarmacias));
-    
-    alert(`Uma nova Farmácia foi cadastrado com sucesso!`)
+    document.getElementById("reset").click()
+    alert(`Uma nova Farmácia foi cadastrado com sucesso!`);
   }
 
   return (
-    //formulario criado com bootstrap e feito modificacoes para responsividade, em cada input existe um onchange que envia valor para var farmacia
-    <div className="container">
+    //Formulario criado com bootstrap e feito modificacoes para responsividade, em cada input existe um onchange que envia valor para var farmacia
+    <div
+      className="container"
+      onLoad={() => document.getElementById("reset").click()}
+    >
       <div className="row justify-content-center">
         <form
-          className="row g-3 mt-5 ps-4 pe-4 pt-3"
+          autoComplete="off"
+          className="row g-3 mt-5 ps-4 pe-4 pt-5"
           onSubmit={(e) => {
             e.preventDefault();
-            e.target.reset();
             armazenaFarmacia();
           }}
         >
           <h4>Cadastro de nova Farmácia:</h4>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputRazaoSocial" className="form-label">
+            <label htmlFor="inputRazaoSocial" className="form-label">
               Razão Social
             </label>
             <input
@@ -66,7 +71,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputCNPJ" className="form-label">
+            <label htmlFor="inputCNPJ" className="form-label">
               CNPJ
             </label>
             <input
@@ -82,7 +87,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputNomeFantasia" className="form-label">
+            <label htmlFor="inputNomeFantasia" className="form-label">
               Nome Fantasia
             </label>
             <input
@@ -97,7 +102,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputEmail" className="form-label">
+            <label htmlFor="inputEmail" className="form-label">
               E-mail
             </label>
             <input
@@ -112,11 +117,11 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputTelefone" className="form-label">
+            <label htmlFor="inputTelefone" className="form-label">
               Telefone
             </label>
             <input
-              type="phone"
+              type="number"
               className="form-control"
               id="inputTelefone"
               placeholder="(99) 9999-9999"
@@ -126,11 +131,11 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputCelular" className="form-label">
+            <label htmlFor="inputCelular" className="form-label">
               Celular
             </label>
             <input
-              type="phone"
+              type="number"
               className="form-control"
               id="inputCelular"
               placeholder="(99) 9.9999-9999"
@@ -141,11 +146,11 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-2 col-lg-3">
-            <label for="inputCEP" className="form-label">
+            <label htmlFor="inputCEP" className="form-label">
               CEP
             </label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               id="inputCEP"
               placeholder="Apenas números {8}"
@@ -155,7 +160,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-8 col-lg-6">
-            <label for="inputTelefone" className="form-label">
+            <label htmlFor="inputTelefone" className="form-label">
               Logradouro
             </label>
             <input
@@ -171,7 +176,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-2 col-lg-3">
-            <label for="inputCelular" className="form-label">
+            <label htmlFor="inputCelular" className="form-label">
               Número
             </label>
             <input
@@ -186,7 +191,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputBairro" className="form-label">
+            <label htmlFor="inputBairro" className="form-label">
               Bairro
             </label>
             <input
@@ -202,7 +207,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputCidade" className="form-label">
+            <label htmlFor="inputCidade" className="form-label">
               Cidade
             </label>
             <input
@@ -218,7 +223,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-4">
-            <label for="inputEstado" className="form-label">
+            <label htmlFor="inputEstado" className="form-label">
               Estado
             </label>
             <input
@@ -234,7 +239,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6">
-            <label for="inputComplemento" className="form-label">
+            <label htmlFor="inputComplemento" className="form-label">
               Complemento
             </label>
             <input
@@ -248,7 +253,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-3">
-            <label for="inputLatitude" className="form-label">
+            <label htmlFor="inputLatitude" className="form-label">
               Latitude
             </label>
             <input
@@ -264,7 +269,7 @@ export default function FormCadastraFarmacia({
             />
           </fieldset>
           <fieldset className="col-md-6 col-lg-3">
-            <label for="inputLongitude" className="form-label">
+            <label htmlFor="inputLongitude" className="form-label">
               Longitude
             </label>
             <input
@@ -281,9 +286,20 @@ export default function FormCadastraFarmacia({
           </fieldset>
           <div className="d-grid gap-1 d-md-flex justify-content-md-end">
             <input
+              id="reset"
               value="Limpar"
               type="reset"
               className="btn btn-secondary me-md-1"
+              onClick={() => {
+                setFarmacia({
+                  logradouro: "",
+                  bairro: "",
+                  cidade: "",
+                  estado: "",
+                  latitude: "",
+                  longitude: "",
+                });
+              }}
             />
             <input
               value="Cadastrar"
