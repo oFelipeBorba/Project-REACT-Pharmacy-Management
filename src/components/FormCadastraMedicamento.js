@@ -15,19 +15,23 @@ export default function FormCadastraMedicamento() {
       JSON.stringify(listaMedicamentos)
     );
     document.getElementById("reset").click();
-    alert(`Um novo Medicamento foi cadastrado com sucesso!`)
+    alert(`Um novo Medicamento foi cadastrado com sucesso!`);
   }
   return (
     <div className="container">
       <div className="row justify-content-center mt-2 pt-5">
-        <form className="row g-3 p-4" onSubmit={armazenaMedicamento}>
+        <form
+          className="row g-3 p-4"
+          onSubmit={armazenaMedicamento}
+          autoComplete="off"
+        >
           <h4>Cadastro de novo Medicamento:</h4>
           <fieldset className="col-md-6">
             <label htmlFor="inputMedicamento" className="form-label">
               Medicamento
             </label>
             <input
-              value={medicamento.medicamento}
+              value={medicamento.medicamento || ""}
               type="text"
               className="form-control"
               id="inputMedicamento"
@@ -43,7 +47,7 @@ export default function FormCadastraMedicamento() {
               Laboratório
             </label>
             <input
-              value={medicamento.laboratorio}
+              value={medicamento.laboratorio || ""}
               type="text"
               className="form-control"
               id="inputLaboratorio"
@@ -59,7 +63,7 @@ export default function FormCadastraMedicamento() {
               Dosagem
             </label>
             <input
-              value={medicamento.dosagem}
+              value={medicamento.dosagem || ""}
               type="text"
               className="form-control"
               id="inputDosagem"
@@ -75,7 +79,7 @@ export default function FormCadastraMedicamento() {
               Preço Unitário
             </label>
             <input
-              value={medicamento.preco}
+              value={medicamento.preco || ""}
               type="text"
               className="form-control"
               id="inputPreco"
@@ -111,7 +115,7 @@ export default function FormCadastraMedicamento() {
               Descrição
             </label>
             <textarea
-              value={medicamento.descricao}
+              value={medicamento.descricao || ""}
               className="form-control"
               id="inputDescricao"
               rows="5"

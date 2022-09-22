@@ -13,7 +13,7 @@ export default function FormCadastraFarmacia({
   //Variavel local para armazenar provisoriamente os dados dos inputs e depois enviar para lista completa das farmacias
   const [farmacia, setFarmacia] = useState({});
   //Crio um array para receber os dados ja existentes do localStorage
-  let listaFarmacias = JSON.parse(localStorage.getItem("ListaFarmacias"));  
+  let listaFarmacias = JSON.parse(localStorage.getItem("ListaFarmacias"));
   //Como os dados do cep sao recebidos por meio de props e nao so pelo onchange, utilizo o useffect para atualizar o valor de farmacia toda vez que o cepInformado for alterado
   useEffect(() => {
     setFarmacia({
@@ -35,7 +35,7 @@ export default function FormCadastraFarmacia({
     });
     listaFarmacias.push(farmacia);
     localStorage.setItem("ListaFarmacias", JSON.stringify(listaFarmacias));
-    document.getElementById("reset").click()
+    document.getElementById("reset").click();
     alert(`Uma nova Farmácia foi cadastrado com sucesso!`);
   }
 
@@ -60,6 +60,7 @@ export default function FormCadastraFarmacia({
               Razão Social
             </label>
             <input
+              value={farmacia.razao || ''}
               type="text"
               className="form-control"
               id="inputRazaoSocial"
@@ -75,6 +76,7 @@ export default function FormCadastraFarmacia({
               CNPJ
             </label>
             <input
+            value={farmacia.cnpj || ''}
               type="text"
               className="form-control"
               id="inputCNPJ"
@@ -91,6 +93,7 @@ export default function FormCadastraFarmacia({
               Nome Fantasia
             </label>
             <input
+            value={farmacia.nome || ''}
               type="text"
               className="form-control"
               id="inputNomeFantasia"
@@ -106,6 +109,7 @@ export default function FormCadastraFarmacia({
               E-mail
             </label>
             <input
+            value={farmacia.email || ''}
               type="email"
               className="form-control"
               id="inputEmail"
@@ -121,6 +125,7 @@ export default function FormCadastraFarmacia({
               Telefone
             </label>
             <input
+            value={farmacia.telefone || ''}
               type="number"
               className="form-control"
               id="inputTelefone"
@@ -135,6 +140,7 @@ export default function FormCadastraFarmacia({
               Celular
             </label>
             <input
+            value={farmacia.celular || ''}
               type="number"
               className="form-control"
               id="inputCelular"
@@ -164,7 +170,7 @@ export default function FormCadastraFarmacia({
               Logradouro
             </label>
             <input
-              value={farmacia.logradouro}
+              value={farmacia.logradouro || ''}
               type="phone"
               className="form-control"
               id="inputTelefone"
@@ -180,6 +186,7 @@ export default function FormCadastraFarmacia({
               Número
             </label>
             <input
+            value={farmacia.numero || ''}
               type="phone"
               className="form-control"
               id="inputCelular"
@@ -195,7 +202,7 @@ export default function FormCadastraFarmacia({
               Bairro
             </label>
             <input
-              value={farmacia.bairro}
+              value={farmacia.bairro || ''}
               type="text"
               className="form-control"
               id="inputBairro"
@@ -211,7 +218,7 @@ export default function FormCadastraFarmacia({
               Cidade
             </label>
             <input
-              value={farmacia.cidade}
+              value={farmacia.cidade || ''}
               type="text"
               className="form-control"
               id="inputCidade"
@@ -227,7 +234,7 @@ export default function FormCadastraFarmacia({
               Estado
             </label>
             <input
-              value={farmacia.estado}
+              value={farmacia.estado || ''}
               type="text"
               className="form-control"
               id="inputEstado"
@@ -243,6 +250,7 @@ export default function FormCadastraFarmacia({
               Complemento
             </label>
             <input
+            value={farmacia.complemento || ''}
               type="text"
               className="form-control"
               id="inputComplemento"
@@ -257,7 +265,7 @@ export default function FormCadastraFarmacia({
               Latitude
             </label>
             <input
-              value={farmacia.latitude}
+              value={farmacia.latitude || ''}
               type="text"
               className="form-control"
               id="inputLatitude"
@@ -273,7 +281,7 @@ export default function FormCadastraFarmacia({
               Longitude
             </label>
             <input
-              value={farmacia.longitude}
+              value={farmacia.longitude || ''}
               type="text"
               className="form-control"
               id="inputLongitude"

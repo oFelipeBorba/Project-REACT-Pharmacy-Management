@@ -1,7 +1,7 @@
 export default function EstruturaAjuda() {
   return (
     <div className="container pt-5">
-      <div className="mt-5 pt-4 ">
+      <div className="mt-5 p-4 ">
         <h4>Perguntas Frequentes</h4>
         <p>
           Ficou com alguma dúvida e está precisando de ajuda? Veja abaixo uma
