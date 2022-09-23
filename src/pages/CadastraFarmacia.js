@@ -16,7 +16,7 @@ export default function CadastraFarmacia() {
 
   //o useEffect aciona toda vez que o valor de cepInformado altera, ele recebe seu valor no onChange do input do CEP.
   //Verifica se ele contem os 8 digitos e faz o fetch com a api viaCep, esse retorno, apos passar por um tratamento de erros,
-  //eh enviado para a variavel do useRef que preenche os atributos'value' dos inputs de endereco.
+  //e enviado para a variavel do useRef que preenche os atributos'value' dos inputs de endereco.
   useEffect(() => {
     if (cepInformado.length === 8) {
       fetch(`https://viacep.com.br/ws/${cepInformado}/json/`, { method: "GET" })

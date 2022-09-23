@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 export default function ListaMedicamentos() {
   // Declaro uma variavel para receber do localStorage todos os medicamentos ja cadastrados
   let listaMedicamentos = JSON.parse(localStorage.getItem("ListaMedicamentos"));
+  // Declaro variaveis para controle da exclusao de medicamentos da lista
+  const [listaAnterior, setListaAnterior] = useState(JSON.parse(localStorage.getItem("ListaMedicamentos")))
+  let novaLista;
 
   // Declaro um useState para receber de inicio a lista de medicamentos, ele sera utilizado para filtrar a pesquisa do usuario
   const [filtrado, setFiltro] = useState(listaMedicamentos);
@@ -11,7 +14,21 @@ export default function ListaMedicamentos() {
   // Declaro um useState para receber o que foi digitado pelo usuário
   const [termo, setTermo] = useState("");
 
-  // useEffect ira alterar o valor do filtrado toda vez que o termo digitado mudar
+  // Funcao compartilhada por props, exclui o card a partir do id que e carregado no onclick do botao excluir dentro do modal
+  function apagaMedicamento(id) {
+    novaLista = listaAnterior.filter((item) => {
+      if (item.id !== id) {
+        return item;
+      } else {
+        return false;
+      }
+    });
+    localStorage.setItem("ListaMedicamentos", JSON.stringify(novaLista));
+    setListaAnterior(novaLista)
+    alert(`O medicamento selecionado foi excluido da lista com sucesso.`)
+  }
+
+  // useEffect ira alterar o valor do filtrado toda vez que o termo digitado mudar ou algum card for excluido
   useEffect(() => {
     // O valor de filtrado sera composto apenas pelos itens da listaMedicamentos que corresponderem ao que foi digitado pelo usuario
     setFiltro(
@@ -27,7 +44,7 @@ export default function ListaMedicamentos() {
         }
       })
     );
-  }, [termo]);
+  }, [termo, listaAnterior]);
 
   return (
     <>
@@ -48,6 +65,7 @@ export default function ListaMedicamentos() {
             {filtrado.map((item) => {
               return (
                 <CardMedicamento
+                  excluir={apagaMedicamento}
                   key={item.id}
                   descricao={item.descricao}
                   medicamento={item.medicamento}
@@ -59,6 +77,7 @@ export default function ListaMedicamentos() {
                 />
               );
             })}
+            {filtrado.length === 0 ? <div>Não existem medicamentos para serem apresentados.</div>: null}
           </div>
         </div>
       </div>

@@ -21,9 +21,9 @@ export default function FormCadastraMedicamento() {
     <div className="container">
       <div className="row justify-content-center mt-2 pt-5">
         <form
+          autoComplete="off"
           className="row g-3 p-4"
           onSubmit={armazenaMedicamento}
-          autoComplete="off"
         >
           <h4>Cadastro de novo Medicamento:</h4>
           <fieldset className="col-md-6">

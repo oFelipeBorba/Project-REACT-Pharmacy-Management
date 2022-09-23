@@ -1,11 +1,13 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 export default function EstruturaMapa() {
- 
   //Carrego do LocalStorage os dados ja armazenados e guardo na variavel listaFarmacias
-  let listaFarmacias = JSON.parse(localStorage.getItem("ListaFarmacias"));  
-  
+  let listaFarmacias = JSON.parse(localStorage.getItem("ListaFarmacias"));
+
   return (
-    <div className="row align-items-center mt-3 vh-100 ms-n5" style={{position: "fixed"}}>
+    <div
+      className="row align-items-center mt-3 vh-100 ms-n5"
+      style={{ position: "fixed" }}
+    >
       <div
         className="mt-4 pt-4"
         style={{
@@ -29,7 +31,10 @@ export default function EstruturaMapa() {
           />
 
           {listaFarmacias.map((farmacia) => (
-            <Marker position={[farmacia.latitude, farmacia.longitude]} key={farmacia.id}>
+            <Marker
+              position={[farmacia.latitude, farmacia.longitude]}
+              key={farmacia.id}
+            >
               <Popup>
                 <h6>{farmacia.nome}</h6>
                 <span>

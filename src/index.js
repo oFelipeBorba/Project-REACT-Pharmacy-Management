@@ -1,4 +1,3 @@
-import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { LoginProvider } from './contexts/useLogin';
 import 'bootstrap/dist/css/bootstrap.min.css';
