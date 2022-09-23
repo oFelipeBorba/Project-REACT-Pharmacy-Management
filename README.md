@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# DEVinHouse: Turma CLAMED
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Projeto 2 - Pharmacy Management
 
-## Available Scripts
+### Desenvolvimento de um sistema de gestão de farmácias cujo objetivo é realizar o cadastro de farmácias e medicamentos, realizar armazenamento no LocalStorage e apresentar para o usuário os dados de interesse.
+#### A aplicação foi desenvolvida em HTML, CSS e JavaScript, utilizando o React e Bootstrap.
+##### O usuário tem acesso ao cadastro de novas farmácias e medicamentos a partir de formulários que captam as informações mais importantes que serão armazenadas no LocalStorage, ele é capaz de navegar entre os medicamentos salvos por meio de uma barra de pesquisa e excluir qualquer um deles. Além disso foi implementado um mapa com o uso da API LeaFlet que mostra todas as farmácias que já foram cadastradas.
 
-In the project directory, you can run:
+## Visualização do projeto final:
+**Tela de Login**
+<img src="https://user-images.githubusercontent.com/108702072/192031519-69256964-8349-4ce6-9248-cdb7a198ba38.png" width="700px" />
+**Tela de Cadastro de Farmácia**
+<img src="https://user-images.githubusercontent.com/108702072/192031726-af51c7fb-0493-4d02-9e7c-8529fd71a404.png" width="700px" />
+**Tela de Cadastro de Medicamento**
+<img src="https://user-images.githubusercontent.com/108702072/192031780-92d78294-a563-4264-87c1-786172f84ce6.png" width="700px" />
+**Tela da Lista de Medicamentos**
+<img src="https://user-images.githubusercontent.com/108702072/192031658-24c59502-8909-46a6-9f86-d354f4d00cf7.png" width="700px" />
+**Tela do Mapa de Farmácias**
+<img src="https://user-images.githubusercontent.com/108702072/192031577-6fb78f24-d62f-42b0-b8be-068065f49229.png" width="700px" />
 
-### `npm start`
+## Conhecimentos utilizados para criação:
+- **Fundamentos da Programação Web**:
+HTML: Principais elementos (versão 4) e Elementos semânticos (versão 5)
+CSS: Seletores, Principais Estilos, Layouts e Layout com Flexbox
+Organização: Trello e Versionamento com GitHub
+- **JavaScript**:
+Variáveis, Tipos de dados, Array, Estrutura de Controle de Fluxo (condicional e repetição) e Operadores (aritméticos, lógicos e relacionais)
+Funções, Manipulação do DOM, Utilização de Seletores, Eventos, JSON, LocalStorage, Interval e Timeout
+Apresentação do ES6+, Escopo (let, var e const), Classes, Atributos, Encapsulamento (closure) e Funções de Arrays (forEach, map, filter, find, reduce e every)
+Arrow Functions e Módulos (export e import)
+Funções Assíncronas (Promises, Async e Await), Operadores Rest e Spread, e XMLHttpRequest e Fetch
+- **React**:
+Renderização de componentes, Renderização de Listas, Props e Proptypes
+Hooks Principais (useState, useEffect e useRef), eventos e lifecycles
+Overview sobre componentes de classe (com revisão de Herança e Polimorfismo)
+Context API, Hooks Avançados (useReducer e useContext), React Router, e Prop Drilling
+Composition, Formulários, Estilos (Styled Components e Bootstrap), Developer Tools, e
+Componentes de terceiros (react-leaflet)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> Desenvolvido por: Felipe de Oliveira Borba
