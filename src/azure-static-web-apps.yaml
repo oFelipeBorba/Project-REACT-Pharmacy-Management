@@ -1,0 +1,24 @@
+# azure-static-web-apps.yaml
+# Comando de compilação
+build:
+  # Comando para compilar o aplicativo
+  command: npm run build
+
+# Informações do aplicativo
+app_location: /build
+# Rotas de API
+routes:
+  # Rota para o backend da API
+  - route: /api
+    # Destino da rota
+    serve: api
+    # Habilitar o CORS para esta rota
+    cors:
+      - allowed_origins: ['*']
+        allowed_methods: ['GET', 'POST']
+# Configuração de autenticação
+authentication:
+  # Provedor de identidade a ser usado
+  identityProvider: GitHub
+  # Escopo do provedor de autenticação
+  scope: openid profile email

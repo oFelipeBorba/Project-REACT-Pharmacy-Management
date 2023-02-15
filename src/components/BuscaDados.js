@@ -33,6 +33,11 @@ export default function BuscaDados() {
       preco: "25,47",
     },
   ];
+
+  // useEffect(()=>{
+  //   fetch('http://localhost:8080/farmacia')
+  // });
+
   //Faco uma verificacao para saber se ja existe algo no localstorage
   //Caso nao exista eu armazeno a primeira farmacia e primeiro medicamento no localStorage
   if (localStorage.getItem("ListaFarmacias")) {
